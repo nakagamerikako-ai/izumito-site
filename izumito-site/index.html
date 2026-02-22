@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IZUMITO - 長野県下諏訪町の古民家リノベーションシェアハウス。2026年3月オープン。入居者募集中。">
+    <title>IZUMITO（いずみと）| 下諏訪町の古民家リノベーションシェアハウス</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-jp">泉人</span>
+                <span class="logo-en">IZUMITO</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">ホーム</a></li>
+                <li><a href="#concept" class="nav-link">コンセプト</a></li>
+                <li><a href="#facilities" class="nav-link">施設紹介</a></li>
+                <li><a href="#pricing" class="nav-link">料金・プラン</a></li>
+                <li><a href="#access" class="nav-link">アクセス</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"><div class="hero-pattern"></div><div class="hero-overlay"></div></div>
+        <div class="hero-content">
+            <p class="hero-open-badge"><span class="badge-dot"></span> 2026年3月オープン ｜ 入居者募集中</p>
+            <h1 class="hero-title">
+                <span class="title-main">もう一つの豊かさを。</span>
+                <span class="title-sub">湖の町下諏訪町に灯がともる</span>
+            </h1>
+            <p class="hero-desc">古民家リノベーション × 和モダンデザイン<br>諏訪湖近く、駅近のシェアハウス</p>
+            <div class="hero-actions">
+                <a href="#pricing" class="btn btn-primary">入居者募集中</a>
+                <a href="#facilities" class="btn btn-outline">施設を見る</a>
+            </div>
+        </div>
+        <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+    </section>
+
+    <section class="section" id="concept">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Concept</span>
+                <h2 class="section-title">IZUMITOが目指す暮らし</h2>
+                <p class="section-desc">都会の忙しさから離れ、諏訪湖のほとりで見つける、もう一つの豊かさ。</p>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>自然と共生する暮らし</h3>
+                    <p>諏訪湖、八ヶ岳、霧ヶ峰。豊かな自然に囲まれた下諏訪町で暮らす。</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon"><i class="fas fa-home"></i></div>
+                    <h3>古民家の温もり</h3>
+                    <p>長い年月を経た木の質感、高い天井。古民家を現代的にリノベーション。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing (抜粋して構成を維持) -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Pricing</span>
+                <h2 class="section-title">料金・プラン</h2>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-header"><span class="room-number">①</span><span class="room-floor">1F</span></div>
+                    <h4 class="room-name">洋室 6畳</h4>
+                    <div class="room-price"><span class="price-amount">35,000</span><span class="price-period">/月</span></div>
+                </div>
+                <!-- 他の部屋も同様に続きます -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="contact">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">お問い合わせ</h2>
+            </div>
+
+            <!-- Netlify用の設定を追加したフォーム -->
+            <form class="contact-form" id="contactForm" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contactForm">
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="interest">お問い合わせ内容 <span class="required">*</span></label>
+                    <select id="interest" name="interest" required>
+                        <option value="">選択してください</option>
+                        <option value="入居希望">入居希望</option>
+                        <option value="内見予約">内見予約</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">メッセージ <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                    <span class="btn-text">送信する</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IZUMITO. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <h3>送信完了</h3>
+            <p>お問い合わせありがとうございました。</p>
+            <button class="btn btn-primary" onclick="closeModal()">閉じる</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
