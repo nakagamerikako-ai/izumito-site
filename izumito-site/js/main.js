@@ -1,63 +1,91 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ナビゲーションのスクロール効果
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
 
-    // スクロールアニメーションの監視
+    // === Navbar Scroll === (あなたのコードのまま)
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+
+    function handleScroll() {
+        const y = window.scrollY;
+        navbar.classList.toggle('scrolled', y > 60);
+        if(backToTop) backToTop.classList.toggle('visible', y > 500);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    // === Mobile Menu === (あなたのコードのまま)
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if(navToggle) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+
+    // === Scroll Animations === (あなたのコードのまま)
+    const animElements = document.querySelectorAll(
+        '.concept-card, .charm-item, .facility-showcase-item, .facility-card, .room-card, .access-card, .flow-step, .rule-item, .contact-card, .plan-card'
+    );
+    animElements.forEach(el => el.classList.add('anim-on-scroll'));
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
+                const delay = entry.target.dataset.delay || 0;
+                setTimeout(() => entry.target.classList.add('animated'), delay);
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.concept-card, .room-card, .charm-item, .flow-item').forEach(el => {
-        el.classList.add('anim-on-scroll');
+    animElements.forEach((el, i) => {
+        el.dataset.delay = (i % 5) * 80;
         observer.observe(el);
     });
 
-    // お問い合わせフォーム送信（Netlify AJAX送信）
+    // === Contact Form === (送信処理だけNetlify用に変更)
     const form = document.getElementById('contactForm');
-    if (form) {
+    const submitBtn = document.getElementById('submitBtn');
+
+    if(form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerText;
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            if(btnText) btnText.style.display = 'none';
+            if(btnLoading) btnLoading.style.display = 'inline-flex';
             submitBtn.disabled = true;
-            submitBtn.innerText = "送信中...";
 
             const formData = new FormData(form);
             try {
-                const response = await fetch("/", {
+                // Netlify Forms への送信
+                const res = await fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
 
-                if (response.ok) {
+                if (res.ok) {
                     document.getElementById('successModal').classList.add('active');
                     form.reset();
                 } else {
-                    alert("送信に失敗しました。時間をおいて再度お試しください。");
+                    alert("送信に失敗しました。");
                 }
-            } catch (error) {
-                alert("接続エラーが発生しました。");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalText;
+            } catch (err) {
+                alert("送信に失敗しました。");
             }
+
+            if(btnText) btnText.style.display = 'inline-flex';
+            if(btnLoading) btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
         });
     }
-});
 
-// モーダルを閉じる関数
-function closeModal() {
-    document.getElementById('successModal').classList.remove('active');
-}
+    // === Modal === (あなたのコードのまま)
+    window.closeModal = function() {
+        document.getElementById('successModal').classList.remove('active');
+    };
+});
