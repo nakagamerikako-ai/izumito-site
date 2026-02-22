@@ -1,21 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // === Navbar Scroll ===
+    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
 
-    // === Mobile Menu ===
+    // Mobile Menu
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
+    if(navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // === Scroll Animations ===
+    // Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -24,14 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.concept-card, .room-card').forEach(el => {
+    document.querySelectorAll('.concept-card, .room-card, .facility-showcase-item').forEach(el => {
         el.classList.add('anim-on-scroll');
         observer.observe(el);
     });
 
-    // === Contact Form Submission (Netlify AJAX) ===
+    // Form Submission
     const form = document.getElementById('contactForm');
-    
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -40,31 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = "送信中...";
 
             const formData = new FormData(form);
-            
             try {
-                const response = await fetch("/", {
+                const res = await fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
-
-                if (response.ok) {
+                if (res.ok) {
                     document.getElementById('successModal').classList.add('active');
                     form.reset();
                 } else {
-                    throw new Error('送信に失敗しました');
+                    alert("送信に失敗しました。時間をおいて再度お試しください。");
                 }
-            } catch (error) {
-                alert("エラーが発生しました。もう一度お試しください。");
+            } catch (err) {
+                alert("エラーが発生しました。");
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerText = "送信する";
             }
         });
     }
-
-    // === Modal Close ===
-    window.closeModal = function() {
-        document.getElementById('successModal').classList.remove('active');
-    };
 });
+
+function closeModal() {
+    document.getElementById('successModal').classList.remove('active');
+}
