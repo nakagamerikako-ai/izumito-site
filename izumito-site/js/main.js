@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar scroll effect
+    // ナビゲーションのスクロール効果
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -9,16 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    if(navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Scroll Animations
+    // スクロールアニメーションの監視
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -27,43 +18,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.concept-card, .room-card, .facility-showcase-item').forEach(el => {
+    document.querySelectorAll('.concept-card, .room-card, .charm-item, .flow-item').forEach(el => {
         el.classList.add('anim-on-scroll');
         observer.observe(el);
     });
 
-    // Form Submission
+    // お問い合わせフォーム送信（Netlify AJAX送信）
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerText;
             submitBtn.disabled = true;
             submitBtn.innerText = "送信中...";
 
             const formData = new FormData(form);
             try {
-                const res = await fetch("/", {
+                const response = await fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
                 });
-                if (res.ok) {
+
+                if (response.ok) {
                     document.getElementById('successModal').classList.add('active');
                     form.reset();
                 } else {
                     alert("送信に失敗しました。時間をおいて再度お試しください。");
                 }
-            } catch (err) {
-                alert("エラーが発生しました。");
+            } catch (error) {
+                alert("接続エラーが発生しました。");
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerText = "送信する";
+                submitBtn.innerText = originalText;
             }
         });
     }
 });
 
+// モーダルを閉じる関数
 function closeModal() {
     document.getElementById('successModal').classList.remove('active');
 }

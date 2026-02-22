@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome (アイコン用) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
     <!-- Stylesheet -->
@@ -21,12 +21,9 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <span class="logo-jp">泉人</span>
-                <span class="logo-en">IZUMITO</span>
+                <span class="logo-jp">泉人</span><span class="logo-en">IZUMITO</span>
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">ホーム</a></li>
                 <li><a href="#concept" class="nav-link">コンセプト</a></li>
@@ -52,7 +49,7 @@
                 <a href="#facilities" class="btn btn-outline">施設を見る</a>
             </div>
         </div>
-        <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+        <div class="hero-scroll"><span>SCROLL</span><div class="scroll-line"></div></div>
     </section>
 
     <section class="section" id="concept">
@@ -60,28 +57,38 @@
             <div class="section-header">
                 <span class="section-label">Concept</span>
                 <h2 class="section-title">IZUMITOが目指す暮らし</h2>
-                <p class="section-desc">都会の忙しさから離れ、諏訪湖のほとりで見つける、もう一つの豊かさ。<br>古き良き日本建築の温もりと、現代的な快適さが融合した空間で、新しい出会いと学びに満ちた日々を。</p>
+                <p class="section-desc">都会の忙しさから離れ、諏訪湖のほとりで見つける、もう一つの豊かさ。</p>
             </div>
             <div class="concept-grid">
                 <div class="concept-card">
                     <div class="concept-icon"><i class="fas fa-mountain"></i></div>
                     <h3>自然と共生する暮らし</h3>
-                    <p>諏訪湖、八ヶ岳、霧ヶ峰。豊かな自然に囲まれた下諏訪町で、四季折々の美しさを感じながら暮らす。</p>
+                    <p>諏訪湖、八ヶ岳、霧ヶ峰。豊かな自然に囲まれた下諏訪町で暮らす。</p>
                 </div>
                 <div class="concept-card">
                     <div class="concept-icon"><i class="fas fa-users"></i></div>
                     <h3>多様なつながり</h3>
-                    <p>20-35歳の学生から若手社会人まで、様々なバックグラウンドを持つ仲間との出会い。</p>
+                    <p>様々なバックグラウンドを持つ仲間との出会い。広いリビングで語らい、刺激し合う。</p>
                 </div>
                 <div class="concept-card">
                     <div class="concept-icon"><i class="fas fa-home"></i></div>
                     <h3>古民家の温もり</h3>
-                    <p>長い年月を経た木の質感、高い天井、和の趣。古民家ならではの落ち着いた空間。</p>
+                    <p>長い年月を経た木の質感、高い天井。古民家ならではの落ち着いた空間。</p>
                 </div>
                 <div class="concept-card">
                     <div class="concept-icon"><i class="fas fa-laptop"></i></div>
                     <h3>働きやすい環境</h3>
-                    <p>リモートワーク対応の充実したワークスペース完備。高速Wi-Fi、コーヒー無料。</p>
+                    <p>リモートワーク対応のワークスペース完備。高速Wi-Fi、コーヒー無料。</p>
+                </div>
+            </div>
+            
+            <div class="shimoswa-charm">
+                <h3 class="sub-title">下諏訪町の魅力</h3>
+                <div class="charm-grid">
+                    <div class="charm-item"><i class="fas fa-water"></i><h4>諏訪湖</h4><p>朝焼けに輝く湖面、夕暮れの散歩道は格別です。</p></div>
+                    <div class="charm-item"><i class="fas fa-hot-tub-person"></i><h4>温泉</h4><p>歴史ある温泉街。日帰り入浴施設も充実しています。</p></div>
+                    <div class="charm-item"><i class="fas fa-train"></i><h4>アクセス</h4><p>JR下諏訪駅から徒歩圏内。東京・名古屋からも良好。</p></div>
+                    <div class="charm-item"><i class="fas fa-torii-gate"></i><h4>歴史文化</h4><p>諏訪大社下社、宿場町としての歴史を持つ町。</p></div>
                 </div>
             </div>
         </div>
@@ -92,20 +99,21 @@
             <div class="section-header light">
                 <span class="section-label">Facilities</span>
                 <h2 class="section-title">施設紹介</h2>
+                <p class="section-desc">共用スペースと個室のバランスが取れた、住みやすい環境です。</p>
             </div>
             <div class="facilities-showcase">
                 <div class="facility-showcase-item">
                     <div class="facility-image-area"><div class="facility-placeholder facility-living"><i class="fas fa-couch"></i><span>広いリビング</span></div></div>
                     <div class="facility-detail">
                         <h3>広いリビング</h3>
-                        <p>開放感あふれるリビング。古民家の高い天井と太い梁が特徴的で、木の温もりを感じられます。</p>
+                        <p>古民家の高い天井と太い梁が特徴的。住人同士が自然と集まる場所です。</p>
                     </div>
                 </div>
                 <div class="facility-showcase-item reverse">
                     <div class="facility-image-area"><div class="facility-placeholder facility-work"><i class="fas fa-laptop"></i><span>ワークスペース</span></div></div>
                     <div class="facility-detail">
                         <h3>ワークスペース</h3>
-                        <p>リモートワークに最適な静かな環境。高速Wi-Fi完備で快適に仕事ができます。</p>
+                        <p>集中して仕事や勉強に取り組める、静かな環境を整えています。</p>
                     </div>
                 </div>
             </div>
@@ -118,60 +126,101 @@
                 <span class="section-label">Pricing</span>
                 <h2 class="section-title">料金・プラン</h2>
             </div>
+            <h3 class="sub-title">入居用5部屋</h3>
             <div class="rooms-grid">
-                <div class="room-card"><h4 class="room-name">① 1F 洋室 6畳</h4><div class="room-price"><span class="price-amount">35,000</span><span>/月</span></div></div>
-                <div class="room-card"><h4 class="room-name">② 1F 洋室 8畳</h4><div class="room-price"><span class="price-amount">35,000</span><span>/月</span></div></div>
-                <div class="room-card"><h4 class="room-name">③ 2F 洋室 6畳</h4><div class="room-price"><span class="price-amount">33,000</span><span>/月</span></div></div>
-                <div class="room-card"><h4 class="room-name">④ 2F 和室 6畳</h4><div class="room-price"><span class="price-amount">33,000</span><span>/月</span></div></div>
-                <div class="room-card"><h4 class="room-name">⑤ 2F 洋室 6畳</h4><div class="room-price"><span class="price-amount">35,000</span><span>/月</span></div></div>
+                <div class="room-card"><div class="room-header"><span class="room-number">①</span><span class="room-floor">1F</span></div><h4 class="room-name">洋室 6畳</h4><div class="room-price"><span class="price-amount">35,000</span>/月</div></div>
+                <div class="room-card"><div class="room-header"><span class="room-number">②</span><span class="room-floor">1F</span></div><h4 class="room-name">洋室 8畳</h4><div class="room-price"><span class="price-amount">35,000</span>/月</div></div>
+                <div class="room-card"><div class="room-header"><span class="room-number">③</span><span class="room-floor">2F</span></div><h4 class="room-name">洋室 6畳</h4><div class="room-price"><span class="price-amount">33,000</span>/月</div></div>
+                <div class="room-card"><div class="room-header"><span class="room-number">④</span><span class="room-floor">2F</span></div><h4 class="room-name">和室 6畳</h4><div class="room-price"><span class="price-amount">33,000</span>/月</div></div>
+                <div class="room-card"><div class="room-header"><span class="room-number">⑤</span><span class="room-floor">2F</span></div><h4 class="room-name">洋室 6畳</h4><div class="room-price"><span class="price-amount">35,000</span>/月</div></div>
             </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <p>※別途、共益費 15,000円/月が必要です。</p>
+
+            <div class="common-fee-box">
+                <div class="common-fee-header">
+                    <h4>共益費（全室共通）</h4>
+                    <span class="price-amount">¥15,000<span>/月</span></span>
+                </div>
+                <div class="common-fee-body">
+                    <p>【含まれるもの】水道光熱費 / Wi-Fi利用 / ワークスペース利用 / コーヒー・お茶 / 消耗品</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-warm" id="access">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Access</span>
+                <h2 class="section-title">アクセス・立地情報</h2>
+            </div>
+            <div class="access-content">
+                <div class="map-area">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.7144!2d138.0875!3d36.0735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d05dc3e4e7f4f%3A0x7f5e0f6e1f8e7f5e!2z5LiL6KuP6K2c55S6!5e0!3m2!1sja!2sjp!4v1700000000000" width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="flow">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Flow</span>
+                <h2 class="section-title">入居までの流れ</h2>
+            </div>
+            <div class="flow-grid">
+                <div class="flow-item"><span>01</span><h4>問い合わせ</h4></div>
+                <div class="flow-item"><span>02</span><h4>内見</h4></div>
+                <div class="flow-item"><span>03</span><h4>申込</h4></div>
+                <div class="flow-item"><span>04</span><h4>契約</h4></div>
+                <div class="flow-item"><span>05</span><h4>入居</h4></div>
             </div>
         </div>
     </section>
 
     <section class="section section-dark" id="contact">
         <div class="container">
-            <div class="section-header light">
-                <span class="section-label">Contact</span>
-                <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-layout">
+                <div class="contact-form-side">
+                    <div class="section-header light" style="text-align: left;">
+                        <span class="section-label">Contact</span>
+                        <h2 class="section-title">お問い合わせ</h2>
+                        <p>ご質問・内見のご予約など、お気軽にお問い合わせください。</p>
+                    </div>
+                    <form class="contact-form" id="contactForm" method="POST" data-netlify="true" name="contact">
+                        <input type="hidden" name="form-name" value="contact">
+                        <div class="form-group"><label>お名前 *</label><input type="text" name="name" required></div>
+                        <div class="form-group"><label>メールアドレス *</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>電話番号</label><input type="tel" name="phone"></div>
+                        <div class="form-group">
+                            <label>内容 *</label>
+                            <select name="type" required><option value="入居希望">入居希望</option><option value="内見予約">内見予約</option><option value="その他">その他</option></select>
+                        </div>
+                        <div class="form-group"><label>メッセージ *</label><textarea name="message" rows="4" required></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">送信する</button>
+                    </form>
+                </div>
+                <div class="contact-info-side">
+                    <div class="social-links">
+                        <p>SNSでも情報発信中</p>
+                        <div class="icons"><i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i> <i class="fab fa-facebook"></i></div>
+                    </div>
+                </div>
             </div>
-            <form class="contact-form" id="contactForm" method="POST" data-netlify="true" name="contact">
-                <input type="hidden" name="form-name" value="contact">
-                <div class="form-group">
-                    <label>お名前 <input type="text" name="name" required placeholder="山田 太郎"></label>
-                </div>
-                <div class="form-group">
-                    <label>メールアドレス <input type="email" name="email" required placeholder="example@mail.com"></label>
-                </div>
-                <div class="form-group">
-                    <label>お問い合わせ内容 
-                        <select name="interest" required>
-                            <option value="入居希望">入居希望</option>
-                            <option value="内見予約">内見予約</option>
-                            <option value="その他">その他</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label>メッセージ <textarea name="message" rows="5" required></textarea></label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full" id="submitBtn">送信する</button>
-            </form>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container" style="text-align: center; padding: 40px 0;">
+        <div class="container">
+            <div class="footer-logo">泉人 IZUMITO</div>
             <p>&copy; 2026 IZUMITO. All Rights Reserved.</p>
         </div>
     </footer>
 
     <div class="modal-overlay" id="successModal">
         <div class="modal-content">
-            <h3>送信完了</h3>
-            <p>内容を確認次第、ご連絡させていただきます。</p>
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: #b8956a; margin-bottom: 20px;"></i>
+            <h3>送信が完了しました</h3>
+            <p>内容を確認し、折り返しご連絡いたします。</p>
             <button class="btn btn-primary" onclick="closeModal()">閉じる</button>
         </div>
     </div>
